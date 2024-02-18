@@ -1,32 +1,27 @@
-// import { Button } from '@/components/ui/button';
+import { EditorPanel } from './components/editor';
+import { CodeProvider } from './components/providers';
+import Iframe from './components/Iframe';
 import {
-  ResizablePanelGroup,
-  ResizablePanel,
   ResizableHandle,
-} from '@/components/ui/resizable';
+  ResizablePanel,
+  ResizablePanelGroup,
+} from './components/ui';
 
 function App() {
   return (
-    <div className="bg-black text-white h-[100dvh] w-full grid grid-rows-2">
-      <div>
-        <ResizablePanelGroup direction="horizontal" className="h-96">
-          <ResizablePanel>One</ResizablePanel>
-          <ResizableHandle />
-          <ResizablePanel>Two</ResizablePanel>
-          <ResizableHandle />
-          <ResizablePanel>Three</ResizablePanel>
+    <CodeProvider>
+      <div className=" h-[100vh] bg-black w-full">
+        <ResizablePanelGroup direction="vertical" className=" grid grid-rows-2">
+          <ResizablePanel>
+            <EditorPanel />
+          </ResizablePanel>
+          <ResizableHandle className="h-2" />
+          <ResizablePanel>
+            <Iframe />
+          </ResizablePanel>
         </ResizablePanelGroup>
       </div>
-
-      <div>
-        <iframe
-          title="output"
-          sandbox="alllow-scripts"
-          width="100%"
-          height="100%"
-        />
-      </div>
-    </div>
+    </CodeProvider>
   );
 }
 
